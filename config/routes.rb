@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :chefs, except: [:new]
+  resources :styles, only: [:new, :create, :show]
+  resources :ingredients, only: [:new, :create, :show]
 
    get '/register', to: 'chefs#new'
 
