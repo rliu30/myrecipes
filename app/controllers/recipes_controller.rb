@@ -10,8 +10,7 @@ class RecipesController < ApplicationController
 		@recipes = Recipe.paginate(page: params[:page], per_page: 3)
 	end
 
-	def show
-		
+	def show		
 	end
 
 	def new
@@ -30,8 +29,7 @@ class RecipesController < ApplicationController
 		end
 	end
 
-	def edit
-		
+	def edit		
 	end
 
 	def update
@@ -50,7 +48,7 @@ class RecipesController < ApplicationController
 	end
 
 	def like
-		like = Like.create(like: params[:like], chef: Current_user, recipe: @recipe)
+		like = Like.create(like: params[:like], chef: current_user, recipe: @recipe)
 		if like.valid?
 			flash[:success] = "Your selection was successful!"
 			redirect_to :back
