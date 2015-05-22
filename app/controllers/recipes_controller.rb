@@ -10,7 +10,8 @@ class RecipesController < ApplicationController
 		@recipes = Recipe.paginate(page: params[:page], per_page: 3)
 	end
 
-	def show		
+	def show
+		@reviews = Review.where(recipe_id: @recipe.id)	
 	end
 
 	def new

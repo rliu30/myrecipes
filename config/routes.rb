@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/home', to: 'pages#home'
   
   resources :recipes do
+    resources :reviews, except: [:show, :index]
   	member do
   		post 'like'
   	end
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   resources :chefs, except: [:new, :destroy]
   resources :styles, only: [:new, :create, :show]
   resources :ingredients, only: [:new, :create, :show]
-
+  
    get '/register', to: 'chefs#new'
 
    get '/login', to: 'logins#new'
